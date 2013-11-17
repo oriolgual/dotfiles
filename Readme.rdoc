@@ -1,11 +1,9 @@
-= Codegram dotfiles
+= My dotfiles
 
-These are the dotfiles we use at Codegram! The repo is heavily inspired on Ryan
-Bates' dotfiles, with the nice Rakefile and stuff.
 
 == Installation
 
-  git clone git://github.com/codegram/dotfiles ~/.dotfiles
+  git clone git://github.com/oriolgual/dotfiles ~/.dotfiles
   cd ~/.dotfiles
   rake install
 
@@ -16,19 +14,6 @@ These dotfiles require this file:
   ~/.zshrc.local
 
 Here you can add your own mapping without risking to lose them when updating the repo :)
-
-== Tmux
-
-Go to your project directory and type this:
-
-  $ t
-
-Keys to move around tmux:
-
-  * `\`o` (backtick and the letter o): Switch the current pane (split).
-  * `\`k`: Kill the current window.
-  * `\`c`: Create a new window (tab).
-  * `\`n`: Switch windows (tabs).
 
 == Looking for our vimfiles as well?
 
