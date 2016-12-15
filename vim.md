@@ -1,38 +1,5 @@
 # vimfiles
 
-These are the new Codegram vimfiles!
-
-## Installing
-
-### One-liner
-
-If you trust me, do this:
-
-    rm -fR ~/.vim && git clone git@github.com:oriolgual/dotfiles.git ~/.dotfiles && rm ~/.vimrc && ln -s ~/.dotfiles/vimrc ~/.vimrc && git clone https://github.com/gmarik/vundle.git ~/.dotfiles/bundle/vundle && vim +BundleInstall +qa! && clear && echo "Done! :)"
-
-### Manual way
-
-Clone this repo:
-
-    $ git clone git@github.com:oriolgual/dotfiles.git ~/.vim
-    $ rm ~/.vimrc && ln -s ~/.vim/vimrc ~/.vimrc
-
-Install [Vundle](https://github.com/gmarik/vundle):
-
-    $ git clone https://github.com/gmarik/vundle.git ~/.dotfiles/bundle/vundle
-
-Set up your `~/vimrc.local` with your custom plugins, themes, for example:
-
-    " Color theme
-    Bundle 'sjl/badwolf'
-    colorscheme badwolf
-
-Open up Vim, and issue this command:
-
-    :BundleInstall
-
-TA-DA! Everything's done!
-
 ## Custom mappings
 
 * The leader key is `,` (comma).
