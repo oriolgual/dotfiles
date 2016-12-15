@@ -4,8 +4,7 @@
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\e[0;32m[\u@mbp \w\e[m\e[0;31m$(__git_ps1)\e[m\e[0;32m]\e[m\$ '
-# export PS1='\e[0;32m[\u@mbp \w$(__git_ps1)]\$ \e[m '
+export PS1='\e[0;32m[\e[m\e[0;36m\u@\h\e[m \e[0;35m\w\e[m\e[m\e[0;34m$(__git_ps1)\e[m\e[0;32m]\e[m '
 
 # Autojump
 source /usr/local/etc/profile.d/autojump.sh
