@@ -18,6 +18,8 @@ alias ll="ls -la"
 alias be="bundle exec"
 alias rc="bundle exec rails console"
 alias rs="bundle exec rails server"
+alias bi="bundle install"
+alias rake="bundle exec rake"
 
 alias g='git'
 alias ga='git add'
@@ -30,6 +32,8 @@ alias gcmsg='git commit -m'
 alias gco='git checkout'
 alias gd='git diff'
 alias gdca='git diff --cached'
+
+alias gf="git fetch"
 
 alias ggpull='git pull origin $(git_current_branch)'
 alias ggpush='git push origin $(git_current_branch)'
