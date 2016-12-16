@@ -13,6 +13,7 @@ source /usr/local/etc/profile.d/autojump.sh
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 
 # Aliases
+alias rmr="trash"
 alias git_current_branch="git symbolic-ref --short HEAD"
 alias ll="ls -la"
 alias be="bundle exec"
