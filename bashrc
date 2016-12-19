@@ -6,6 +6,8 @@ source /usr/local/etc/bash_completion.d/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\e[0;32m[\e[m\e[0;36m\u@\h\e[m \e[0;35m\w\e[m\e[m\e[0;34m$(__git_ps1)\e[m\e[0;32m]\e[m '
 
+source ~/.dotfiles/rake_bash_autocomplete.sh
+
 # Autojump
 source /usr/local/etc/profile.d/autojump.sh
 
@@ -23,6 +25,7 @@ alias bi="bundle install"
 alias rake="bundle exec rake"
 
 alias g='git'
+alias gs='git show'
 alias ga='git add'
 alias gaa='git add --all'
 alias gc='git commit -v'
