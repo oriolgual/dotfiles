@@ -335,6 +335,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq-default rspec-snippets-fg-syntax t)
   (setq-default rspec-command-options "--format progress")
   (setq-default rspec-rake-command "bundle exec rake")
+  (add-to-list 'auto-mode-alist '("\\.js.es6$" . js2-mode))
 )
 
 (defun dotspacemacs/user-config ()
