@@ -31,7 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     typescript
      markdown
      yaml
      html
@@ -45,9 +44,10 @@ values."
      better-defaults
      emacs-lisp
      git
-     dash
      ruby-on-rails
-     javascript
+     (javascript :variables
+                 js2-basic-offset 2
+                 js-indent-level 2)
      osx
      spotify
      (ruby :variables
@@ -55,15 +55,11 @@ values."
            ruby-version-manager 'chruby
            ruby-test-runner 'rspec
      )
-     ;; markdown
-     ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
      syntax-checking
      version-control
      react
+     (typescript :variables
+                 typescript-fmt-on-save t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -305,34 +301,49 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  ;; Indentation from
-  ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
-  (defun my-setup-indent (n)
+    (defun my-setup-indent (n)
+    ;; java/c/c++
+    (setq standard-indent n)
+    (setq c-basic-offset n)
     ;; web development
-    (setq coffee-tab-width n) ; coffeescript
-    (setq react-tab-width n) ; coffeescript
+    (setq typescript-indent-level 2) ; Typescript files indentation level
     (setq javascript-indent-level n) ; javascript-mode
     (setq js-indent-level n) ; js-mode
-    (setq js2-basic-offset n) ; js2-mode
-    (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-    (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+    (setq react-indent-level n) ; react-mode
+    (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+    (setq web-mode-attr-indent-offset n) ; web-mode
     (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+    (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+    (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+    (setq web-mode-sql-indent-offset n) ; web-mode
+    (setq web-mode-attr-value-indent-offset n) ; web-mode
     (setq css-indent-offset n) ; css-mode
-    )
+    (setq sh-basic-offset n) ; shell scripts
+    (setq sh-indentation n))
 
   (defun my-personal-code-style ()
     (interactive)
     (message "Indentation set to two")
-    (setq indent-tabs-mode nil) ; use space instead of tab
-    (my-setup-indent 2) ; indent 2 spaces width
-    )
+    ;; use space instead of tab
+    (setq indent-tabs-mode nil)
+    ;; indent 2 spaces width
+    (my-setup-indent 2))
 
-  (my-personal-code-style)
+  (my-personal-code-style) ;; it would be lovely if this was enough, but it gets stomped on by modes >:(
+
+  (add-hook 'css-mode-hook 'my-personal-code-style)
+  (add-hook 'js2-mode-hook 'my-personal-code-style)
+  (add-hook 'react-mode-hook 'my-personal-code-style)
+  (add-hook 'sh-mode-hook 'my-personal-code-style)
+
   (global-linum-mode)
   (setq auto-revert-check-vc-info t)
   (setq magit-repository-directories '("~/Code/"))
   (add-to-list 'auto-mode-alist '("\\.js.es6$" . js2-mode))
   (setq js2-strict-missing-semi-warning nil)
+  (spacemacs/toggle-indent-guide-globally-on)
+  (setq typescript-indent-level 2)
+  (setq json-reformat:indent-width 2)
 )
 
 (defun dotspacemacs/user-config ()
@@ -361,7 +372,8 @@ you should place your code here."
  '(rspec-snippets-fg-syntax t)
  '(rspec-spec-command "bundle exec rspec")
  '(rspec-use-bundler-when-possible nil)
- '(rspec-use-zeus-when-possible nil))
+ '(rspec-use-zeus-when-possible nil)
+ '(safe-local-variable-values (quote ((encoding . utf-8)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
