@@ -29,6 +29,10 @@ source /usr/local/etc/profile.d/autojump.sh
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 chruby 2.4.0
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
+
 # Aliases
 alias rmr="trash"
 alias git_current_branch="git symbolic-ref --short HEAD"
