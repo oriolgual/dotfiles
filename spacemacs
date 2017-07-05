@@ -342,7 +342,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-to-list 'auto-mode-alist '("\\.js.es6$" . js2-mode))
   (setq js2-strict-missing-semi-warning nil)
   (spacemacs/toggle-indent-guide-globally-on)
-  (setq typescript-indent-level 2)
   (setq json-reformat:indent-width 2)
 )
 
@@ -373,7 +372,8 @@ you should place your code here."
  '(rspec-spec-command "bundle exec rspec")
  '(rspec-use-bundler-when-possible nil)
  '(rspec-use-zeus-when-possible nil)
- '(safe-local-variable-values (quote ((encoding . utf-8)))))
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
