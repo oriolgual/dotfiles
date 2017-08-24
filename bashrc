@@ -44,6 +44,8 @@ alias bi="bundle install"
 alias rake="bundle exec rake"
 alias rspec="bundle exec rspec"
 
+alias nom="npm"
+
 alias g='git'
 alias gs='git show'
 alias ga='git add'
