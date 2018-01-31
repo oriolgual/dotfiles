@@ -20,20 +20,22 @@ GIT_STATUS='${GIT_COLOR}$(__git_ps1)'
 
 PROMPT_CHAR=" \$"
 export PS1="\[$cyan\]\u\[$green\]@\[$cyan\]\h \[$cyan\]\[$magenta\]\w\[$cyan\]\[$reset\]$GIT_STATUS\[$green\]$PROMPT_CHAR\[$reset\] "
-source ~/.dotfiles/rake_bash_autocomplete.sh
 
 # Autojump
 source /usr/local/etc/profile.d/autojump.sh
 
 # chruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
-chruby 2.4.0
+chruby 2.5.0
+source /usr/local/share/chruby/auto.sh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
 
 # Aliases
+alias empresaula_console="rancher exec -it empresaula-production/core-worker bundle exec rails console"
+alias empresaula_bash="rancher exec -it empresaula-production/core-worker bash"
 alias rmr="trash"
 alias git_current_branch="git symbolic-ref --short HEAD"
 alias ll="ls -la"
@@ -43,6 +45,7 @@ alias rs="bundle exec rails server"
 alias bi="bundle install"
 alias rake="bundle exec rake"
 alias rspec="bundle exec rspec"
+alias wallcat="ruby wallcat.rb"
 
 alias nom="npm"
 
