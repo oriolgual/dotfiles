@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     csv
      markdown
      yaml
      html
@@ -226,7 +227,7 @@ values."
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil to boost the loading time. (default t)
-   dotspacemacs-loading-progress-bar nil
+   dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
    dotspacemacs-fullscreen-at-startup nil
@@ -250,7 +251,7 @@ values."
    ;; If non nil show the color guide hint for transient state keys. (default t)
    dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   ;; dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
@@ -318,6 +319,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (setq css-indent-offset n) ; css-mode
     (setq sh-basic-offset n) ; shell scripts
     (setq sh-indentation n))
+    (setq-default mac-right-option-modifier nil)
 
   (defun my-personal-code-style ()
     (interactive)
@@ -354,6 +356,8 @@ you should place your code here."
                                     :test "npm test"
                                     :run "npm start"
                                     :test-suffix ".spec"))
+  (setq ruby-insert-encoding-magic-comment nil)
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -364,7 +368,8 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (powerline pcre2el spinner parent-mode pkg-info epl flx anzu goto-chg undo-tree s popup winum unfill projectile request fuzzy diminish bind-key packed avy iedit smartparens bind-map highlight f evil dash helm helm-core async hydra tide typescript-mode markdown-mode mwim web-completion-data dash-functional company auto-complete haml-mode spotify helm-spotify multi fringe-helper tern inflections skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode pos-tip flycheck rake org gitignore-mode with-editor enh-ruby-mode inf-ruby define-word yaml-mode xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline solarized-theme smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-mode rainbow-identifiers rainbow-delimiters quelpa pug-mode projectile-rails popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-plus-contrib org-bullets open-junk-file ob-elixir neotree multi-term move-text monokai-theme mmm-mode minitest markdown-toc macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-dash helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode gh-md flycheck-pos-tip flycheck-mix flycheck-elm flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elm-mode elisp-slime-nav dumb-jump diff-hl dash-at-point company-web company-tern company-statistics column-enforce-mode color-identifiers-mode coffee-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (winum org-plus-contrib csv-mode powerline pcre2el spinner parent-mode pkg-info epl flx anzu goto-chg undo-tree s popup unfill projectile request fuzzy diminish bind-key packed avy iedit smartparens bind-map highlight f evil dash helm helm-core async hydra tide typescript-mode markdown-mode mwim web-completion-data dash-functional company auto-complete haml-mode spotify helm-spotify multi fringe-helper tern inflections skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode pos-tip flycheck rake org gitignore-mode with-editor enh-ruby-mode inf-ruby define-word yaml-mode xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline solarized-theme smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-mode rainbow-identifiers rainbow-delimiters quelpa pug-mode projectile-rails popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-bullets open-junk-file ob-elixir neotree multi-term move-text monokai-theme mmm-mode minitest markdown-toc macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-dash helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode gh-md flycheck-pos-tip flycheck-mix flycheck-elm flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elm-mode elisp-slime-nav dumb-jump diff-hl dash-at-point company-web company-tern company-statistics column-enforce-mode color-identifiers-mode coffee-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(paradox-github-token t)
  '(rspec-autosave-buffer t)
  '(rspec-command-options "--format progress")
  '(rspec-expose-dsl-globally t)
@@ -372,6 +377,7 @@ you should place your code here."
  '(rspec-snippets-fg-syntax t)
  '(rspec-spec-command "bundle exec rspec")
  '(rspec-use-bundler-when-possible nil)
+ '(rspec-use-chruby t)
  '(rspec-use-zeus-when-possible nil)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(vc-follow-symlinks t))
