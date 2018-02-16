@@ -54,6 +54,7 @@ values."
            ruby-enable-enh-ruby-mode t
            ruby-version-manager 'chruby
            ruby-test-runner 'rspec
+
      )
      syntax-checking
      react
@@ -366,9 +367,12 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(enh-ruby-add-encoding-comment-on-save nil)
+ '(enh-ruby-deep-indent-paren nil)
+ '(enh-ruby-hanging-paren-deep-indent-level 2)
  '(package-selected-packages
    (quote
-    (winum org-plus-contrib csv-mode powerline pcre2el spinner parent-mode pkg-info epl flx anzu goto-chg undo-tree s popup unfill projectile request fuzzy diminish bind-key packed avy iedit smartparens bind-map highlight f evil dash helm helm-core async hydra tide typescript-mode markdown-mode mwim web-completion-data dash-functional company auto-complete haml-mode spotify helm-spotify multi fringe-helper tern inflections skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode pos-tip flycheck rake org gitignore-mode with-editor enh-ruby-mode inf-ruby define-word yaml-mode xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline solarized-theme smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-mode rainbow-identifiers rainbow-delimiters quelpa pug-mode projectile-rails popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-bullets open-junk-file ob-elixir neotree multi-term move-text monokai-theme mmm-mode minitest markdown-toc macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-dash helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode gh-md flycheck-pos-tip flycheck-mix flycheck-elm flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elm-mode elisp-slime-nav dumb-jump diff-hl dash-at-point company-web company-tern company-statistics column-enforce-mode color-identifiers-mode coffee-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (helm-spotify-plus winum org-plus-contrib csv-mode powerline pcre2el spinner parent-mode pkg-info epl flx anzu goto-chg undo-tree s popup unfill projectile request fuzzy diminish bind-key packed avy iedit smartparens bind-map highlight f evil dash helm helm-core async hydra tide typescript-mode markdown-mode mwim web-completion-data dash-functional company auto-complete haml-mode spotify helm-spotify multi fringe-helper tern inflections skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode pos-tip flycheck rake org gitignore-mode with-editor enh-ruby-mode inf-ruby define-word yaml-mode xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline solarized-theme smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-mode rainbow-identifiers rainbow-delimiters quelpa pug-mode projectile-rails popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-bullets open-junk-file ob-elixir neotree multi-term move-text monokai-theme mmm-mode minitest markdown-toc macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-dash helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode gh-md flycheck-pos-tip flycheck-mix flycheck-elm flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elm-mode elisp-slime-nav dumb-jump diff-hl dash-at-point company-web company-tern company-statistics column-enforce-mode color-identifiers-mode coffee-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(paradox-github-token t)
  '(rspec-autosave-buffer t)
  '(rspec-command-options "--format progress")
@@ -379,6 +383,8 @@ you should place your code here."
  '(rspec-use-bundler-when-possible nil)
  '(rspec-use-chruby t)
  '(rspec-use-zeus-when-possible nil)
+ '(ruby-encoding-magic-comment-style (quote custom))
+ '(ruby-insert-encoding-magic-comment nil)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(vc-follow-symlinks t))
 (custom-set-faces
