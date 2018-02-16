@@ -47,8 +47,6 @@ alias rake="bundle exec rake"
 alias rspec="bundle exec rspec"
 alias wallcat="ruby wallcat.rb"
 
-alias nom="npm"
-
 alias g='git'
 alias gs='git show'
 alias ga='git add'
@@ -90,3 +88,8 @@ alias gss='git status -s'
 alias gst='git status'
 
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
+
+alias ggpuhs="ggpush"
+alias heorku="heroku"
+alias gti="git"
+alias nom="npm"
