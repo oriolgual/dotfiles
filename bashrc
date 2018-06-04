@@ -33,6 +33,9 @@ source /usr/local/share/chruby/auto.sh
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
 
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+
 # Aliases
 alias empresaula_console="rancher exec -it empresaula-production/core-worker bundle exec rails console"
 alias empresaula_bash="rancher exec -it empresaula-production/core-worker bash"
@@ -88,6 +91,7 @@ alias gss='git status -s'
 alias gst='git status'
 
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
+alias gclean='git checkout master && git branch | grep -v "*" | xargs git branch -D'
 
 alias ggpuhs="ggpush"
 alias heorku="heroku"
