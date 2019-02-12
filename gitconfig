@@ -17,8 +17,8 @@
   untracked = cyan
 [user]
   name = Oriol Gual
-  email = oriol.gual@gmail.com
-  signingkey = 4EF37E9C601FAB71
+	email = oriol@codegram.com
+	signingkey = 2CAB2830DAAA72AE
 [merge]
   tool = vimdiff
 [core]
@@ -29,3 +29,7 @@
   whitespace = nowarn
 [format]
   pretty = %C(yellow)%h%Creset %s %C(red)(%cr)%Creset
+[gui]
+	recentrepo = /Users/oriol/Code/decidim
+[commit]
+	gpgsign = true

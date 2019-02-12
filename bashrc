@@ -31,7 +31,7 @@ source /usr/local/share/chruby/auto.sh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
+  . "/usr/local/opt/nvm/nvm.sh" --no-use
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
@@ -98,3 +98,10 @@ alias heorku="heroku"
 alias gti="git"
 alias nom="npm"
 alias xit="exit"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
