@@ -98,6 +98,7 @@ alias heorku="heroku"
 alias gti="git"
 alias nom="npm"
 alias xit="exit"
+alias bake="rake"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
