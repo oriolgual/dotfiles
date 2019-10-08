@@ -21,20 +21,23 @@ GIT_STATUS='${GIT_COLOR}$(__git_ps1)'
 PROMPT_CHAR=" \$"
 export PS1="\[$cyan\]\u\[$green\]@\[$cyan\]\h \[$cyan\]\[$magenta\]\w\[$cyan\]\[$reset\]$GIT_STATUS\[$green\]$PROMPT_CHAR\[$reset\] "
 
+export LC_ALL=en_US.UTF-8
+
 # Autojump
 source /usr/local/etc/profile.d/autojump.sh
 
 # chruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
-chruby 2.5.0
+chruby 2.6.3
 source /usr/local/share/chruby/auto.sh
+ulimit -n 360
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh" --no-use
 
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 
 # Aliases
 alias empresaula_console="rancher exec -it empresaula-production/core-worker bundle exec rails console"
@@ -89,6 +92,7 @@ alias grbm='git rebase origin/master'
 alias grbs='git rebase --skip'
 alias gss='git status -s'
 alias gst='git status'
+alias gchp='git cherry-pick'
 
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gclean='git checkout master && git branch | grep -v "*" | xargs git branch -D'
@@ -100,9 +104,7 @@ alias nom="npm"
 alias xit="exit"
 alias bake="rake"
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+alias vargo="cargo"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
