@@ -37,7 +37,16 @@ export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh" --no-use
 
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+export PATH="/usr/local/opt/postgresql/bin:$PATH"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 
 # Aliases
 alias empresaula_console="rancher exec -it empresaula-production/core-worker bundle exec rails console"
@@ -103,8 +112,4 @@ alias gti="git"
 alias nom="npm"
 alias xit="exit"
 alias bake="rake"
-
 alias vargo="cargo"
-
-export PATH="$HOME/.cargo/bin:$PATH"
-export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
