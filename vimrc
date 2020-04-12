@@ -3,10 +3,52 @@
 " Source: https://github.com/oriolgual/vimfiles
 
 set nocompatible
+set packpath^=~/.vim
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.dotfiles/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+" Add other plugins here.
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'mrxd/bufkill.vim'
+Plug 'terryma/vim-multiple-cursors'
+
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'vim-jp/syntax-vim-ex'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'Townk/vim-autoclose'
+Plug 'tomtom/tcomment_vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+Plug 'dense-analysis/ale'
+Plug 'tpope/vim-rails'
+Plug 'pangloss/vim-javascript'
+Plug 'vim-ruby/vim-ruby'
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-fireplace'
+Plug 'derekwyatt/vim-scala'
+
+call plug#end()
+
+" Load the plugins right now. (optional)
+"packloadall
+
+let g:vimix_map_keys = 1
 
 " ----------
 " Leader key
@@ -14,61 +56,12 @@ Bundle 'gmarik/vundle'
 let mapleader = ","
 let maplocalleader = "."
 
-" -------
-" BUNDLES
-" -------
-
-Bundle 'rking/ag.vim'
-" Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-endwise'
-Bundle 'Townk/vim-autoclose'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'bling/vim-airline'
-Bundle 'ctrlpvim/ctrlp.vim'
-
-" Bundle 'mattn/webapi-vim'
-" Bundle 'mattn/gist-vim'
-
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-fugitive'
-" Bundle 'tpope/vim-cucumber'
-" Bundle 'slim-template/vim-slim'
-" Bundle 'leebo/vim-slim'
-" Bundle 'rking/vim-ruby-refactoring'
-" Bundle 'tpope/vim-dispatch'
-
-" Bundle 'nono/vim-handlebars'
-" Bundle 'kchmck/vim-coffee-script'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdtree'
-
-Bundle 'vim-scripts/ctags.vim'
-Bundle 'mrxd/bufkill.vim'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'scrooloose/syntastic'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'benmills/vimux'
-Bundle 'spiegela/vimix'
-let g:vimix_map_keys = 1
-
-" Bundle 'codegram/vim-haml2slim'
-
 " Default color theme
-Bundle 'altercation/vim-colors-solarized'
 set background=dark
 colorscheme solarized
-
-" Bundle 'junkblocker/patchreview-vim'
-" Bundle 'codegram/vim-codereview'
-
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-fireplace'
-
-" Bundle 'tpope/vim-abolish'
-
-Bundle 'derekwyatt/vim-scala'
-Bundle 'majutsushi/tagbar'
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
 
 " ------------
 " VIM SETTINGS
@@ -198,14 +191,14 @@ vmap <leader>gb :Gblame<CR>
 " PLUG-IN SETTINGS
 " ----------------
 
-" Powerline (fancy status bar)
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_cache_enabled = 1
+" Ack (Regex-based search)
+nmap <leader>a :Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --smart-case'
+endif
 
-" Ag (Regex-based search)
-nmap <leader>a :Ag
 " Rotating among results
-map <C-n> :cn<CR>
+" map <C-n> :cn<CR>
 " map <C-p> :cp<CR>
 
 " TComment
@@ -217,10 +210,10 @@ let g:AutoCloseProtectedRegions = ["Character"]
 
 " Ctags
 " You can use Ctrl-] to jump to a function.... Ctrl-p will jump back
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <C-p> :pop<CR>
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
-nnoremap <leader>. :CtrlPTag<cr>
+" map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" map <C-p> :pop<CR>
+" nnoremap <silent> <Leader>b :TagbarToggle<CR>
+" nnoremap <leader>. :CtrlPTag<cr>
 
 " You can cycle through multiple function definitions using
 " these mappings. This maps to my windows key + left/right arrows
@@ -228,8 +221,10 @@ map <F7> :tnext<CR>
 map <F9> :tprev<CR>
 
 " Ctrl-p
-let g:ctrlp_map = '<leader>o'
-let g:ctrlp_custom_ignore = '\v[\/](doc|tmp|log|coverage|fixtures|node_modules)$'
+"let g:ctrlp_map = '<leader>o'
+"let g:ctrlp_custom_ignore = '\v[\/](doc|tmp|log|coverage|fixtures|node_modules)$'
+" FZF
+map <Leader>o :FZF<CR>
 
 " NERDtree
 nmap <silent> <leader>p :NERDTreeToggle<cr>%
