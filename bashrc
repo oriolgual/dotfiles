@@ -21,6 +21,12 @@ GIT_STATUS='${GIT_COLOR}$(__git_ps1)'
 PROMPT_CHAR=" \$"
 export PS1="\[$cyan\]\u\[$green\]@\[$cyan\]\h \[$cyan\]\[$magenta\]\w\[$cyan\]\[$reset\]$GIT_STATUS\[$green\]$PROMPT_CHAR\[$reset\] "
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 export LC_ALL=en_US.UTF-8
 
 export PATH="/usr/local/sbin:$PATH"

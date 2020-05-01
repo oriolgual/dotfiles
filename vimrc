@@ -14,36 +14,30 @@ Plug 'scrooloose/nerdtree'
 Plug 'mrxd/bufkill.vim'
 Plug 'terryma/vim-multiple-cursors'
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 
 Plug 'vim-jp/syntax-vim-ex'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'Townk/vim-autoclose'
 Plug 'tomtom/tcomment_vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
 
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'tpope/vim-rails'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-ruby/vim-ruby'
 Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
-Plug 'guns/vim-clojure-static'
-Plug 'tpope/vim-fireplace'
-Plug 'derekwyatt/vim-scala'
+" Plug 'slashmili/alchemist.vim'
+" Plug 'guns/vim-clojure-static'
+" Plug 'tpope/vim-fireplace'
+" Plug 'derekwyatt/vim-scala'
 
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 " Load the plugins right now. (optional)
 "packloadall
@@ -57,11 +51,10 @@ let mapleader = ","
 let maplocalleader = "."
 
 " Default color theme
-set background=dark
-colorscheme solarized
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ }
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " ------------
 " VIM SETTINGS
