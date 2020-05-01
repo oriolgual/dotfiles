@@ -1,5 +1,7 @@
 # vimfiles
 
+THIS IS OUTDATED.
+
 ## Custom mappings
 
 * The leader key is `,` (comma).
