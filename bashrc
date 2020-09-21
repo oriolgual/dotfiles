@@ -38,7 +38,7 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 # Autojump
 source /usr/local/etc/profile.d/autojump.sh
 
-ulimit -n 360
+ulimit -n 5000
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
@@ -90,7 +90,9 @@ alias grb='git rebase'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbi='git rebase -i origin/master'
+alias grbdi='git rebase -i origin/develop'
 alias grbm='git rebase origin/master'
+alias grbd='git rebase origin/develop'
 alias grbs='git rebase --skip'
 alias gss='git status -s'
 alias gst='git status'
