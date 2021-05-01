@@ -13,8 +13,12 @@
   ln -s ~/.dotfiles/vimrc ~/.vimrc
   ln -s ~/.dotfiles/Brewfile ~/Brewfile
   ln -s ~/.dotfiles/tool-versions ~/.tool-versions
-
+ 
   brew bundle
+  
+  sudo rm -rf /Library/Developer/CommandLineTools
+  xcode-select --install
+  
   asdf plugin add ruby
   asdf plugin add elixir
   asdf plugin add erlang
