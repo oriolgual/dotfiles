@@ -31,3 +31,5 @@
   pretty = %C(yellow)%h%Creset %s %C(red)(%cr)%Creset
 [commit]
 	gpgsign = true
+[pull]
+	rebase = true

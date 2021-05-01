@@ -31,8 +31,6 @@ export LC_ALL=en_US.UTF-8
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/postgresql/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 # Autojump
@@ -73,6 +71,7 @@ alias gf="git fetch"
 
 alias ggpull='git pull origin $(git_current_branch)'
 alias ggpush='git push origin $(git_current_branch)'
+alias ggpush!='git push origin $(git_current_branch) --force'
 alias glog="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
 
 alias gm='git merge'
