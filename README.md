@@ -15,7 +15,16 @@
   ln -s ~/.dotfiles/tool-versions ~/.tool-versions
 
   brew bundle
+  asdf plugin add ruby
+  asdf plugin add elixir
+  asdf plugin add erlang
+  asdf plugin add python
+  asdf plugin add nodejs
   asdf install
+  
+  sudo vim /etc/shells # add /usr/local/bin/bash
+  chsh -s /usr/local/bin/bash
+  
   git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
