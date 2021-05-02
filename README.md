@@ -39,6 +39,11 @@
   
   mkdir Code
   
+  gpg --full-generate-key
+  gpg --list-secret-keys --keyid-format LONG
+  git config --global user.signingkey XXXXXXXXX
+  gpg --armor --export XXXXXXXX | pbcopy
+  open https://github.com/settings/gpg/new
 ```
 
 # Other stuff I need to do
