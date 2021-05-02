@@ -34,6 +34,9 @@
   vim +PlugInstall +qa!
   base16_tomorrow-night
   
+  gh auth login
+  heroku login
+  
 ```
 
 # Other stuff I need to do
@@ -45,4 +48,3 @@
 * Set DuckDuckGo as search engine
 * Safari settings: show full address, show develop menu, show status bar (command + /)
 * Login aws
-* gh auth login
