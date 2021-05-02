@@ -91,6 +91,10 @@ cask "vlc"
 cask "whatsapp"
 # Video communication and virtual meeting platform
 cask "zoom"
+cask "autofirma"
+cask "microsoft-word"
+cask "flowsync"
+cask "loom"
 mas "1Password 7", id: 1333542190
 mas "Amphetamine", id: 937984704
 mas "Controlly", id: 1548544614
