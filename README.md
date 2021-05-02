@@ -29,9 +29,8 @@
   sudo vim /etc/shells # add /usr/local/bin/bash
   chsh -s /usr/local/bin/bash
   
-  git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  git clone https://github.com/fnune/base16-shell.git ~/.config/base16-shell
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   vim +PlugInstall +qa!
   base16_tomorrow-night
   
