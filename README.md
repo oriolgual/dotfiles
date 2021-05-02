@@ -37,6 +37,8 @@
   gh auth login
   heroku login
   
+  mkdir Code
+  
 ```
 
 # Other stuff I need to do
