@@ -26,7 +26,7 @@
   asdf plugin add nodejs
   asdf install
   
-  sudo vim /etc/shells # add /usr/local/bin/bash
+  echo /usr/local/bin/bash | sudo tee -a /etc/shells
   chsh -s /usr/local/bin/bash
   
   git clone https://github.com/fnune/base16-shell.git ~/.config/base16-shell
