@@ -18,7 +18,7 @@
 [user]
   name = Oriol Gual
 	email = oriol@codegram.com
-	signingkey = 2CAB2830DAAA72AE
+	signingkey = D0391EEDD60A5D52
 [merge]
   tool = vimdiff
 [core]
