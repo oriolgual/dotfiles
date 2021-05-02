@@ -1,4 +1,13 @@
-# Install this: brew install bash-completion bash-git-prompt
+if type brew &>/dev/null; then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+    done
+  fi
+fi
 
 # Prompt
 source /usr/local/etc/bash_completion.d/git-completion.bash
@@ -37,9 +46,8 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 source /usr/local/etc/profile.d/autojump.sh
 
 ulimit -n 5000
-
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+. $(brew --prefix asdf)/asdf.sh
+. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
 
 # Aliases
 alias rmr="trash"

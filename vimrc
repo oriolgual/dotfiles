@@ -14,7 +14,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'mrxd/bufkill.vim'
 Plug 'terryma/vim-multiple-cursors'
 
-Plug 'chriskempson/base16-vim'
+Plug 'fnune/base16-vim'
 
 Plug 'vim-jp/syntax-vim-ex'
 " Plug 'scrooloose/syntastic'
