@@ -48,3 +48,4 @@
 * Set DuckDuckGo as search engine
 * Safari settings: show full address, show develop menu, show status bar (command + /)
 * Login aws
+* Turn on settings sync at VSCode
