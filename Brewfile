@@ -6,6 +6,8 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+# Automatic configure script builder
+brew "autoconf"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
@@ -30,6 +32,8 @@ brew "gh"
 brew "git"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
 # Mac App Store command-line interface
 brew "mas"
 # Object-relational database system
@@ -50,6 +54,7 @@ brew "wget"
 brew "heroku/brew/heroku"
 # Application launcher and productivity software
 cask "alfred"
+cask "autofirma"
 # Desktop casting/streaming app for Apple TV and Chromecast
 cask "beamer"
 # Automated testing of webapps for Google Chrome
@@ -62,11 +67,18 @@ cask "dash"
 cask "docker"
 # Web browser
 cask "firefox"
+# Syncing software for Polar Flow products
+cask "flowsync"
 # Web browser
 cask "google-chrome"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 cask "launchrocket"
+# Screen and video recording software
+cask "loom"
+# Provides updates to various Microsoft products
+cask "microsoft-auto-update"
+cask "microsoft-word"
 # Re-mounts write-protected NTFS volumes
 cask "mounty"
 # Silence embarrassing notifications while screensharing
@@ -91,10 +103,6 @@ cask "vlc"
 cask "whatsapp"
 # Video communication and virtual meeting platform
 cask "zoom"
-cask "autofirma"
-cask "microsoft-word"
-cask "flowsync"
-cask "loom"
 mas "1Password 7", id: 1333542190
 mas "Amphetamine", id: 937984704
 mas "Controlly", id: 1548544614
