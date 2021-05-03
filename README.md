@@ -13,38 +13,39 @@
   ln -s ~/.dotfiles/vimrc ~/.vimrc
   ln -s ~/.dotfiles/Brewfile ~/Brewfile
   ln -s ~/.dotfiles/tool-versions ~/.tool-versions
- 
+
   brew bundle
-  
+
   sudo rm -rf /Library/Developer/CommandLineTools
   xcode-select --install
-  
+
   asdf plugin add ruby
   asdf plugin add elixir
   asdf plugin add erlang
   asdf plugin add python
   asdf plugin add nodejs
   asdf install
-  
+
   echo /usr/local/bin/bash | sudo tee -a /etc/shells
   chsh -s /usr/local/bin/bash
-  
+
   git clone https://github.com/fnune/base16-shell.git ~/.config/base16-shell
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   vim +PlugInstall +qa!
   base16_tomorrow-night
-  
+
   gh auth login
   heroku login
-  
+
   mkdir Code
-  
+
   gpg --full-generate-key
   gpg --list-secret-keys --keyid-format LONG
   git config --global user.signingkey XXXXXXXXX
   gpg --armor --export XXXXXXXX | pbcopy
   open https://github.com/settings/gpg/new
   cd .dotfiles && git remote set-url origin git@github.com:oriolgual/dotfiles.git && cd ..
+  sudo cp ~./dotfiles/hosts /etc/hosts
 ```
 
 # Other stuff I need to do
