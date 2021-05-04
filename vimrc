@@ -17,24 +17,18 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'fnune/base16-vim'
 
 Plug 'vim-jp/syntax-vim-ex'
-" Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
 Plug 'Townk/vim-autoclose'
 Plug 'tomtom/tcomment_vim'
 Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'danro/rename.vim'
 
-" Plug 'dense-analysis/ale'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
-Plug 'pangloss/vim-javascript'
-Plug 'vim-ruby/vim-ruby'
-" Plug 'elixir-lang/vim-elixir'
-" Plug 'slashmili/alchemist.vim'
-" Plug 'guns/vim-clojure-static'
-" Plug 'tpope/vim-fireplace'
-" Plug 'derekwyatt/vim-scala'
+Plug 'slashmili/alchemist.vim'
+Plug 'mhinz/vim-mix-format'
 
 call plug#end()
 
@@ -266,3 +260,5 @@ autocmd FileType ruby
       \ else |
       \   compiler ruby | setl makeprg=ruby\ -wc\ \"%:p\" |
       \ endif
+
+let g:mix_format_on_save = 1
