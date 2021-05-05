@@ -24,6 +24,8 @@ brew "bash-completion"
 brew "bash-git-prompt"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # GNU awk utility
 brew "gawk"
 # GitHub command-line tool
@@ -50,6 +52,8 @@ brew "tree"
 brew "vim"
 # Internet file retriever
 brew "wget"
+# JavaScript package manager
+brew "yarn"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
 # Application launcher and productivity software
@@ -85,6 +89,7 @@ cask "mounty"
 cask "muzzle"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+cask "sensiblesidebuttons"
 # Instant messaging application focusing on security
 cask "signal"
 # Video chat, voice call and instant messaging application
