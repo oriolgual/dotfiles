@@ -1,14 +1,3 @@
-if type brew &>/dev/null; then
-  HOMEBREW_PREFIX="$(brew --prefix)"
-  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
-    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-  else
-    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
-    done
-  fi
-fi
-
 # Prompt
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
@@ -47,7 +36,6 @@ source /usr/local/etc/profile.d/autojump.sh
 
 ulimit -n 5000
 . $(brew --prefix asdf)/asdf.sh
-. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
 
 # Aliases
 alias rmr="trash"
@@ -83,10 +71,10 @@ alias ggpush!='git push origin $(git_current_branch) --force'
 alias glog="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
 
 alias gm='git merge'
-alias gmom='git merge origin/master'
+alias gmom='git merge origin/main'
 alias gmt='git mergetool --no-prompt'
 alias gmtvim='git mergetool --no-prompt --tool=vimdiff'
-alias gmum='git merge upstream/master'
+alias gmum='git merge upstream/main'
 
 alias gp='git push'
 alias gpd='git push --dry-run'
@@ -96,9 +84,9 @@ alias gpv='git push -v'
 alias grb='git rebase'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
-alias grbi='git rebase -i origin/master'
+alias grbi='git rebase -i origin/main'
 alias grbdi='git rebase -i origin/develop'
-alias grbm='git rebase origin/master'
+alias grbm='git rebase origin/main'
 alias grbd='git rebase origin/develop'
 alias grbs='git rebase --skip'
 alias gss='git status -s'
@@ -106,7 +94,7 @@ alias gst='git status'
 alias gchp='git cherry-pick'
 
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
-alias gclean='git checkout master && git branch | grep -v "*" | xargs git branch -D'
+alias gclean='git checkout main && git branch | grep -v "*" | xargs git branch -D'
 
 alias ggpuhs="ggpush"
 alias heorku="heroku"
