@@ -17,8 +17,8 @@
   untracked = cyan
 [user]
   name = Oriol Gual
-	email = oriol@codegram.com
-	signingkey = D0391EEDD60A5D52
+	email = github@gual.me
+	signingkey = 4A0183F06B3846E4
 [merge]
   tool = vimdiff
 [core]
