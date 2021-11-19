@@ -92,9 +92,10 @@ alias grbs='git rebase --skip'
 alias gss='git status -s'
 alias gst='git status'
 alias gchp='git cherry-pick'
-
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gclean='git checkout main && git branch | grep -v "*" | xargs git branch -D'
+alias mns='gaa && gcn! && ggpush!' # 🙈
+alias grewrite='git reset HEAD~1'
 
 alias ggpuhs="ggpush"
 alias heorku="heroku"
