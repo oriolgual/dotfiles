@@ -1,6 +1,23 @@
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export LC_ALL=en_US.UTF-8
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/opt/postgresql/bin:$PATH"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 # Prompt
-source /usr/local/etc/bash_completion.d/git-completion.bash
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
+    source "/usr/local/etc/bash_completion.d/git-completion.bash"
+fi
+# if [ -f "/opt/homebrew/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+#     __GIT_PROMPT_DIR="/opt/homebrew/opt/bash-git-prompt/share"
+#     source "/opt/homebrew/opt/bash-git-prompt/share/gitprompt.sh"
+# fi
+# if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
+#     source "/usr/local/etc/bash_completion.d/git-prompt.sh"
+# fi
+
 GIT_PS1_SHOWDIRTYSTATE=true
 COLUMNS=250
 # Color prompt for git
@@ -25,14 +42,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-export LC_ALL=en_US.UTF-8
-
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/postgresql/bin:$PATH"
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-
 # Autojump
-source /usr/local/etc/profile.d/autojump.sh
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+[ -f /user/local/etc/profile.d/autojump.sh ] && . /user/local/etc/profile.d/autojump.sh
 
 ulimit -n 5000
 . $(brew --prefix asdf)/asdf.sh

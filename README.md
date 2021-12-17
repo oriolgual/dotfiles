@@ -46,7 +46,7 @@
   gpg --armor --export XXXXXXXX | pbcopy
   open https://github.com/settings/gpg/new
   cd .dotfiles && git remote set-url origin git@github.com:oriolgual/dotfiles.git && cd ..
-  sudo cp ~./dotfiles/hosts /etc/hosts
+  sudo cp ~/.dotfiles/hosts /etc/hosts
 ```
 
 # Other stuff I need to do
