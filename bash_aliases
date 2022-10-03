@@ -37,7 +37,7 @@ alias gmt='git mergetool --no-prompt'
 alias gmtvim='git mergetool --no-prompt --tool=vimdiff'
 alias gmum='git merge upstream/main'
 
-alias gp='git push'
+alias gpp='git push'
 alias gpd='git push --dry-run'
 alias gpu='git push upstream'
 alias gpv='git push -v'
