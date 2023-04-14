@@ -68,4 +68,11 @@ alias vargo="cargo"
 alias tuby="ruby"
 alias riby="ruby"
 
+factorial_console () {
+  aws sso login --profile=$1
+  target=$(aws ec2 describe-instances --profile=$1 --filters "Name=tag:Name,Values=$1/k8s-console" --query 'Reservations[].Instances[].InstanceId' --output text)
+  aws ssm start-session --profile=$1 --target=$target
+}
 
+alias fpc='factorial_console production'
+alias fdc='factorial_console demo'
