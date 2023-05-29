@@ -54,4 +54,13 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 ulimit -n 5000
-. $(brew --prefix asdf)/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+eval "$(direnv hook bash)"
+
+# pnpm
+export PNPM_HOME="/Users/oriol/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
