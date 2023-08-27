@@ -14,6 +14,7 @@
   ln -s ~/.dotfiles/vimrc ~/.vimrc
   ln -s ~/.dotfiles/Brewfile ~/Brewfile
   ln -s ~/.dotfiles/tool-versions ~/.tool-versions
+  ln -s ~/.dotfiles/finicky.js ~/.finicky.js
 
   brew bundle
 
