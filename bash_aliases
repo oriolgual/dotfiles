@@ -78,6 +78,35 @@ tmux_frontend_command () {
   tmux send-keys -t 2.0 "$1" Enter
 }
 
+factorial_pause () {
+  tmux send-keys -t 1.0 C-c
+  tmux send-keys -t 2.0 C-c
+  tmux send-keys -t 3.0 C-c
+}
+
+factorial_continue () {
+  tmux send-keys -t 1.0 "bin/rails s" Enter
+  tmux send-keys -t 2.0 "pnpm start" Enter
+  tmux send-keys -t 3.0 "bin/bundle exec sidekiq -C config/sidekiq.yml" Enter
+}
+
+factorial_stop () {
+  tmux send-keys -t 5.0 C-c
+  tmux send-keys -t 1.0 C-c
+  tmux send-keys -t 2.0 C-c
+  tmux send-keys -t 3.0 C-c
+  tmux send-keys -t 4.0 C-c
+  tmux send-keys -t 0.0 "exit" Enter
+  tmux send-keys -t 5.0 "exit" Enter
+  tmux send-keys -t 1.0 "exit" Enter
+  tmux send-keys -t 2.0 "exit" Enter
+  tmux send-keys -t 3.0 "exit" Enter
+  tmux send-keys -t 4.0 "exit" Enter
+  killall -9 ruby
+  killall -9 node
+  tmux send-keys -t 6.0 "exit" Enter
+}
+
 factorial_vite () {
   tmux send-keys -t 2.0 C-c
   tmux_frontend_command 'rm -fr node_modules'
@@ -86,8 +115,8 @@ factorial_vite () {
 }
 
 factorial_update () {
-  echo "Restarting vite..."
-  factorial_vite
+  echo "Stoping servers..."
+  factorial_pause
 
   echo "Updating Rails' dependencies..."
   cd /Users/oriol/code/factorial/backend
@@ -97,15 +126,13 @@ factorial_update () {
   echo "Resetting development database and seeding..."
   git fetch
   gco origin/main -- db/schema.rb db/data_schema.rb
-  RUBYOPT=W0 RAILS_ENV=development rails db:drop db:create db:schema:load:with_data db:migrate:with_data db:seed db:seeds:banking 1> /dev/null
-
-  echo "Restarting Puma..."
-  rm -fr log/*.log
-  rm -fr tmp/*
-  touch tmp/restart.txt
+  RUBYOPT=W0 RAILS_ENV=development rails db:environment:set db:drop db:create db:schema:load:with_data db:migrate:with_data db:seed db:seeds:banking 1> /dev/null
 
   echo "Resetting test database..."
-  RUBYOPT=W0 RAILS_ENV=test rails db:drop db:create db:schema:load 1> /dev/null
+  RUBYOPT=W0 RAILS_ENV=test rails db:environment:set db:drop db:create db:schema:load 1> /dev/null
+
+  echo "Restarting servers..."
+  factorial_continue
 }
 
 switch_to () {
@@ -120,10 +147,13 @@ alias fdc='factorial_console demo'
 alias fdevc='factorial_console development'
 alias f!='cd /Users/oriol/code/factorial && tmuxinator start -p .local-dev/tmuxinator.yml'
 alias e2e!='cd /Users/oriol/code/factorial && tmuxinator start -p .local-dev/tmuxinator_e2e.yml'
+alias fpause=factorial_pause
+alias fcontinue=factorial_continue
+alias fstop=factorial_stop
 alias fupdate='factorial_update'
 alias restart_vite='factorial_vite'
 alias fopen='open https://app.dev-factorial.com'
 alias flogin='open https://api.dev-factorial.com/users/sign_in'
 alias fbackoffice='open https://api.dev-factorial.com/backoffice'
 alias fcypress='APP_HOST=app.dev-factorial.com API_HOST=api.dev-factorial.com PUBLIC_HOST=api.dev-factorial.com CYPRESS_BASE_URL=https://app.dev-factorial.com CYPRESS_API_ENDPOINT=https://api.dev-factorial.com CYPRESS_FAIL_FAST_ENABLED=false API_ENDPOINT=https://api.dev-factorial.com API_LOCATION=https://api.dev-factorial.com npx cypress open'
-alias runtodo=' cd /Users/oriol/code/factorial/ && bin/run-todo 1> /dev/null && gco backend/sorbet/rbi/dsl/perftools/profiles/'
+alias runtodo=' cd /Users/oriol/code/factorial/ && bin/run-todo 1> /dev/null'
