@@ -1,33 +1,17 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export LC_ALL=en_US.UTF-8
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="/usr/local/opt/postgresql/bin:$PATH"
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export HOMEBREW_PREFIX=`brew --prefix`
 set -o vi
 
-# Prompt
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
-if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
-    source "/usr/local/etc/bash_completion.d/git-completion.bash"
-fi
-
-# Autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-[ -f /user/local/etc/profile.d/autojump.sh ] && . /user/local/etc/profile.d/autojump.sh
+[[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+[[ -r "$HOMEBREW_PREFIX/etc/profile.d/autojump.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/autojump.sh"
+[[ -r "$HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh" ]] && . "$HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh"
+[[ -r "$HOMEBREW_PREFIX/etc/bash_completion.d/git-completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/bash_completion.d/git-completion.sh"
+[[ -r "$HOMEBREW_PREFIX/etc/bash_completion.d/asdf.bash" ]] && . "$HOMEBREW_PREFIX/etc/bash_completion.d/asdf.bash"
+. "/usr/local/opt/asdf/libexec/asdf.sh"
 
 source ~/.iterm2_shell_integration.bash
-
-# if [ -f "/opt/homebrew/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-#     __GIT_PROMPT_DIR="/opt/homebrew/opt/bash-git-prompt/share"
-#     source "/opt/homebrew/opt/bash-git-prompt/share/gitprompt.sh"
-# fi
-# if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
-#     source "/usr/local/etc/bash_completion.d/git-prompt.sh"
-# fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
 COLUMNS=250
@@ -51,10 +35,9 @@ export PS1="\[$cyan\]\u\[$green\]@\[$cyan\]\h \[$cyan\]\[$magenta\]\w\[$cyan\]\[
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+        source "$BASE16_SHELL/profile_helper.sh"
 
 ulimit -n 5000
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 eval "$(direnv hook bash)"
 
 # pnpm

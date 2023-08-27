@@ -18,7 +18,7 @@
 [user]
   name = Oriol Gual
 	email = github@gual.me
-	signingkey = EE985DA82297C137
+	signingkey = C2504BACB0DEEFB5
 [merge]
   tool = vimdiff
 [core]
