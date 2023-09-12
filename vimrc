@@ -14,7 +14,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'mrxd/bufkill.vim'
 Plug 'terryma/vim-multiple-cursors'
 
-Plug 'fnune/base16-vim'
+Plug 'tinted-theming/base16-vim'
 
 Plug 'vim-jp/syntax-vim-ex'
 Plug 'tpope/vim-surround'
@@ -46,9 +46,11 @@ let mapleader = ","
 let maplocalleader = "."
 
 " Default color theme
-if filereadable(expand("~/.vimrc_background"))
+if exists('$BASE16_THEME')
+    \ && (!exists('g:colors_name')
+    \ || g:colors_name != 'base16-$BASE16_THEME')
   let base16colorspace=256
-  source ~/.vimrc_background
+  colorscheme base16-$BASE16_THEME
 endif
 
 " ------------

@@ -18,6 +18,8 @@
 
   brew bundle
 
+  curl -L https://iterm2.com/shell_integration/bash -o ~/.iterm2_shell_integration.bash
+
   sudo rm -rf /Library/Developer/CommandLineTools
   xcode-select --install
 

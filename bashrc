@@ -1,3 +1,4 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export LC_ALL=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -9,7 +10,7 @@ set -o vi
 [[ -r "$HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh" ]] && . "$HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh"
 [[ -r "$HOMEBREW_PREFIX/etc/bash_completion.d/git-completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/bash_completion.d/git-completion.sh"
 [[ -r "$HOMEBREW_PREFIX/etc/bash_completion.d/asdf.bash" ]] && . "$HOMEBREW_PREFIX/etc/bash_completion.d/asdf.bash"
-. "/usr/local/opt/asdf/libexec/asdf.sh"
+[[ -r "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh" ]] && . "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
 
 source ~/.iterm2_shell_integration.bash
 
