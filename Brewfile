@@ -22,29 +22,12 @@ brew "tree"
 brew "vim"
 brew "wget"
 brew "fd"
-cask "battle-net"
+brew "direnv"
 cask "chromedriver"
 cask "dash"
-cask "discord"
 cask "docker"
-cask "firefox"
-cask "google-chrome"
-cask "google-cloud-sdk"
 cask "iterm2"
 cask "meetingbar"
-cask "notion"
-cask "rectangle"
 cask "sensiblesidebuttons"
-cask "signal"
-cask "visual-studio-code"
-cask "whatsapp"
-cask "zoom"
 cask "clipy"
 cask "finicky"
-mas "DuckDuckGo Privacy Essentials", id: 1482920575
-mas "LanguageTool", id: 1534275760
-mas "Slack", id: 803453959
-mas "StuffIt Expander", id: 405580712
-mas "Telegram", id: 747648890
-mas "Unsplash Wallpapers", id: 1284863847
-mas "Wipr", id: 1320666476

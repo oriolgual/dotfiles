@@ -17,10 +17,10 @@
   untracked = cyan
 [user]
   name = Oriol Gual
-	email = github@gual.me
-	signingkey = C2504BACB0DEEFB5
+	email = oriol.gual@factorial.co
+	signingkey = 7A58F6C2EA007FF8
 [merge]
-  tool = vimdiff
+  tool = zdiff3
 [core]
   excludesfile = ~/.gitignore
   editor = vim
@@ -30,8 +30,45 @@
 [format]
   pretty = %C(yellow)%h%Creset %s %C(red)(%cr)%Creset
 [commit]
+  verbose = true
 	gpgsign = true
 [pull]
 	rebase = true
 [init]
 	defaultBranch = main
+
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[tag]
+        sort = version:refname
+[init]
+        defaultBranch = main
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+
+[help]
+        autocorrect = prompt
+[rerere]
+        enabled = true
+        autoupdate = true
+[core]
+        excludesfile = ~/.gitignore
+        fsmonitor = true
+        untrackedCache = true
+[rebase]
+        autoSquash = true
+        autoStash = true
+        updateRefs = true
